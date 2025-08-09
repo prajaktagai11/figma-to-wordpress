@@ -1,0 +1,11 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": { "palette": [] },
+    "typography": { "fontFamilies": [], "fontSizes": [] }
+  },
+  "styles": {
+    "typography": { "fontFamily": "system-ui, sans-serif" }
+  }
+}

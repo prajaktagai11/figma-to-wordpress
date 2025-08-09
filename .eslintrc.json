@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "standard-with-typescript"
+  ],
+  "rules": {
+    "@typescript-eslint/consistent-type-imports": "error"
+  }
+}
