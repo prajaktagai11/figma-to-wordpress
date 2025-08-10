@@ -1,4 +1,15 @@
 import type { FigmaNode, MappingRule } from '../types.js'
+import { loadMapping } from '../config/loadMapping.js'
+
+// Load mapping rules once at module import
+const mappingRules: MappingRule[] = loadMapping()
+
+/**
+ * Get the loaded mapping rules
+ */
+export function getMappingRules(): MappingRule[] {
+  return mappingRules
+}
 
 export function findRule (node: FigmaNode, rules: MappingRule[]): MappingRule | null {
   for (const r of rules) {

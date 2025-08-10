@@ -1,18 +1,29 @@
-[
-  {
-    "match": { "nodeType": "TEXT", "nameRegex": "^H([1-6])$" },
-    "block": "heading"
-  },
-  {
-    "match": { "nodeType": "TEXT" },
-    "block": "paragraph"
-  },
-  {
-    "match": { "nodeType": "FRAME", "nameRegex": "^section-" },
-    "block": "group"
-  },
-  {
-    "match": { "nodeType": "RECTANGLE" },
-    "block": "image"
-  }
-]
+{
+  "rules": [
+    {
+      "match": { "nodeType": "TEXT", "nameRegex": "^H([1-6])$" },
+      "block": "heading",
+      "attributes": {}
+    },
+    {
+      "match": { "nodeType": "TEXT" },
+      "block": "paragraph",
+      "attributes": {}
+    },
+    {
+      "match": { "nodeType": "FRAME", "nameRegex": "^section-" },
+      "block": "group",
+      "attributes": {}
+    },
+    {
+      "match": { "nodeType": "RECTANGLE" },
+      "block": "image",
+      "attributes": {}
+    },
+    {
+      "match": { "nodeType": "FRAME" },
+      "block": "group",
+      "attributes": {}
+    }
+  ]
+}

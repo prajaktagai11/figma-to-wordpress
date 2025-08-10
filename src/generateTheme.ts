@@ -6,6 +6,7 @@ import { extractPages } from './parser/pages.js'
 import { buildThemeJson } from './generator/themeJson.js'
 import { buildTemplateHtml } from './generator/templates.js'
 import { zipDirectory } from './generator/zip.js'
+import { loadMapping } from './config/loadMapping.js'
 import type { ThemeGenerationOptions, MappingRule } from './types.js'
 import chalk from 'chalk'
 
@@ -16,9 +17,12 @@ export async function generateTheme (opts: ThemeGenerationOptions) {
   const tokens = extractTokens(file)
   const pages = extractPages(file)
 
-  const rules: MappingRule[] = mappingConfigPath
-    ? JSON.parse(fs.readFileSync(mappingConfigPath, 'utf-8'))
-    : JSON.parse(fs.readFileSync(new URL('./config/mapping.rules.json', import.meta.url), 'utf-8'))
+  // Load mapping rules using the robust loader
+  const rules: MappingRule[] = loadMapping(mappingConfigPath)
+  
+  if (verbose) {
+    console.log(chalk.gray(`Loaded ${rules.length} mapping rules`))
+  }
 
   const themeDir = path.join(outputDir, themeSlug)
   fs.mkdirSync(themeDir, { recursive: true })

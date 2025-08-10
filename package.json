@@ -7,7 +7,7 @@
     "figma2wp": "dist/bin/cli.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && cp src/config/mapping.rules.json dist/src/config/",
     "dev": "ts-node --esm src/dev.ts",
     "lint": "eslint . --ext .ts",
     "start": "node dist/bin/cli.js",
